@@ -1,12 +1,17 @@
 import Header from '../../outlines/front/Header';
 import Footer from '../../outlines/front/Footer';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
 const CommonLayout = () => {
+  const location = useLocation();
+  const path = location.pathname.split('/');
+  path.shift(); // 첫 번째 요소를 제거
+  let mainClass = path.join('_');
+  mainClass = mainClass ? `${mainClass}_page` : 'main_page';
   return (
     <>
       <Header />
-      <main>
+      <main className={mainClass}>
         <Outlet />
       </main>
       <Footer />

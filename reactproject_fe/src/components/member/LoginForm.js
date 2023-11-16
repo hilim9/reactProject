@@ -2,10 +2,17 @@ import { InputText } from '../commons/InputStyle';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { BigButton } from '../commons/ButtonStyle';
-import Message from '../commons/Message';
+//import Message from '../commons/Message';
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiLock, FiKey, FiUserPlus } from 'react-icons/fi';
+import loadable from '@loadable/component'; // 메시지를 필요할때만 사용 (성능 up)
+
+// 지연 로딩
+//const Message = React.lazy(() => import('../commons/Message'));
+const Message = loadable(() => import('../commons/Message'), {
+  fallback: <div>loading</div>,
+});
 
 const LoginText = styled(InputText)`
   display: block;
@@ -41,6 +48,8 @@ const FormBox = styled.form`
 const LoginForm = ({ onSubmit, errors }) => {
   const { t } = useTranslation();
 
+  //const [visible, setVisible] = useState(false);
+
   errors = errors || {};
 
   const refEmail = useRef();
@@ -51,6 +60,10 @@ const LoginForm = ({ onSubmit, errors }) => {
 
   return (
     <FormBox onSubmit={onSubmit}>
+      {/*{visible && <Message>오류발생</Message>}
+      <button type="button" onClick={() => setVisible(!visible)}>
+        Toggle
+      </button>*/}
       <LoginText
         type="text"
         name="email"

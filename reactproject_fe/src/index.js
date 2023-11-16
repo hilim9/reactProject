@@ -6,19 +6,22 @@ import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import reportWebVitals from './reportWebVitals';
 import ErrorPage from './pages/commons/ErrorPage';
+import { UserProvider } from './modules/user';
 
 import './i18n';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <HelmetProvider>
-      <BrowserRouter>
-        <ErrorPage>
-          <App />
-        </ErrorPage>
-      </BrowserRouter>
-    </HelmetProvider>
+    <UserProvider>
+      <HelmetProvider>
+        <BrowserRouter>
+          <ErrorPage>
+            <App />
+          </ErrorPage>
+        </BrowserRouter>
+      </HelmetProvider>
+    </UserProvider>
   </React.StrictMode>,
 );
 
