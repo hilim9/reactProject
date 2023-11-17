@@ -23,6 +23,8 @@ main { background: #f1f3fa;}
 .mt10 { margin-top: 10px;}
 .mb10 { margin-bottom: 10px;}
 
+main { padding-top: 80px;}
+
 /* 로그인 페이지 */
 .login_page{
     position: fixed;
