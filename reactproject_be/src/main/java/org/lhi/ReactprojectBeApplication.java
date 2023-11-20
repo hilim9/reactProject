@@ -1,4 +1,4 @@
-package org.lhi.reactproject_be;
+package org.lhi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
