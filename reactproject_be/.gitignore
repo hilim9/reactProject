@@ -1,5 +1,6 @@
 src/main/generated/
 HELP.md
+tests
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
