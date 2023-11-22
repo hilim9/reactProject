@@ -11,7 +11,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
@@ -27,28 +26,25 @@ public class MemberJoinTest {
     @DisplayName("회원 가입 테스트")
     void joinTest() throws Exception {
         RequestJoin form = RequestJoin.builder()
-                .email("user01@test.org")
+                //.email("user01@test.org")
                 .password("_aA123456")
                 .confirmPassword("_aA123456")
                 .name("사용자01")
-                .mobile("01012345678")
+                .mobile("01000000000")
                 .agree(true)
                 .build();
-      
-        // 자바 객체를 JSON으로 JSON을 자바객체로 변환해주는 클래스
+
         ObjectMapper om = new ObjectMapper();
         String params = om.writeValueAsString(form);
-        //System.out.println(params);
 
-        // 요청 body 
         mockMvc.perform(
                 post("/api/v1/member")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .characterEncoding("UTF-8")
                         .content(params)
-                        .with(csrf().asHeader()) // csrf 토큰 추가
-
+                //.with(csrf().asHeader())
         ).andDo(print());
+
     }
 
 
