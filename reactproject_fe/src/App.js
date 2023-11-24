@@ -4,8 +4,16 @@ import NotFound from './pages/commons/NotFound';
 import Main from './pages/front/Main';
 import Login from './pages/front/member/Login';
 import Join from './pages/front/member/Join';
+import { useContext } from 'react';
+import UserContext from './modules/user';
 
 const App = () => {
+  const {
+    action: { updateUserInfo },
+  } = useContext(UserContext);
+
+  updateUserInfo();
+
   return (
     <Routes>
       <Route path="/" element={<FrontLayout />}>

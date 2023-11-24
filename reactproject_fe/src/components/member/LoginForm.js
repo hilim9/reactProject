@@ -45,7 +45,7 @@ const FormBox = styled.form`
   }
 `;
 
-const LoginForm = ({ onSubmit, errors }) => {
+const LoginForm = ({ onSubmit, errors, onChange }) => {
   const { t } = useTranslation();
 
   //const [visible, setVisible] = useState(false);
@@ -69,18 +69,22 @@ const LoginForm = ({ onSubmit, errors }) => {
         name="email"
         placeholder={t('이메일')}
         ref={refEmail}
+        onChange={onChange}
       />
-      {errors.email && errors.email.message && (
-        <Message>{errors.email.message}</Message>
-      )}
+      {errors.email && <Message>{errors.email}</Message>}
 
-      <LoginText type="password" name="password" placeholder={t('비밀번호')} />
-      {errors.password && errors.password.message && (
-        <Message>{errors.password.message}</Message>
-      )}
+      <LoginText
+        type="password"
+        name="password"
+        placeholder={t('비밀번호')}
+        onChange={onChange}
+      />
+      {errors.password && <Message>{errors.password}</Message>}
+
       <BigButton type="submit" size="smail" className="mt5">
         {t('로그인')}
       </BigButton>
+
       <div className="links">
         <Link to="/find_id">
           <FiLock /> {t('아이디 찾기')}
@@ -93,9 +97,7 @@ const LoginForm = ({ onSubmit, errors }) => {
         </Link>
       </div>
 
-      {errors.global && errors.global.message && (
-        <Message>{errors.global.message}</Message>
-      )}
+      {errors.global && <Message>{errors.globale}</Message>}
     </FormBox>
   );
 };

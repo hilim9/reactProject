@@ -96,12 +96,9 @@ const JoinForm = ({ onSubmit, onChange, onToggle, form, errors }) => {
             type="password"
             name="confirmPassword"
             value={form.confirmPassword}
-          />
-          <ErrorMessages
-            errors={errors}
-            field="confirmPassword"
             onChange={onChange}
           />
+          <ErrorMessages errors={errors} field="confirmPassword" />
         </dd>
       </dl>
       <dl>
