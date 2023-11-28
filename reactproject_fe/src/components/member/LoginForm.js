@@ -10,9 +10,7 @@ import loadable from '@loadable/component'; // 메시지를 필요할때만 사�
 
 // 지연 로딩
 //const Message = React.lazy(() => import('../commons/Message'));
-const Message = loadable(() => import('../commons/Message'), {
-  fallback: <div>loading</div>,
-});
+const Message = loadable(() => import('../commons/Message'));
 
 const LoginText = styled(InputText)`
   display: block;

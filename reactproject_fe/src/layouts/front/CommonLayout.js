@@ -1,13 +1,17 @@
 import Header from '../../outlines/front/Header';
 import Footer from '../../outlines/front/Footer';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import React, { useContext } from 'react';
+import MainClassContext from '../../modules/mainClass';
+import { useEffect } from 'react';
 
 const CommonLayout = () => {
-  const location = useLocation();
-  const path = location.pathname.split('/');
-  path.shift(); // 첫 번째 요소를 제거
-  let mainClass = path.join('_');
-  mainClass = mainClass ? `${mainClass}_page` : 'main_page';
+  const { mainClass, update } = useContext(MainClassContext);
+
+  useEffect(() => {
+    update();
+  }, [update]);
+
   return (
     <>
       <Header />

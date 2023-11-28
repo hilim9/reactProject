@@ -40,4 +40,10 @@ main { padding-top: 80px;}
     align-items: center;
 }
 
+/* 관리자 공통 */
+.admin_page { display: flex;}
+.admin_page > aside { width: 208px; background: #ccc; min-height: 850px; }
+.admin_page > section { flex-grow: 1; padding: 0 50px 50px;}
 
+.admin_page > aside a { display: block; padding: 30px 25px; border-bottom: 1px solid #555; font-size: 1.35rem; }
+.admin_page > aside a.on { background: #555; color: #fff; }
