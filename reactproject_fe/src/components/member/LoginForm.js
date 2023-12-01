@@ -83,6 +83,8 @@ const LoginForm = ({ onSubmit, errors, onChange }) => {
         {t('로그인')}
       </BigButton>
 
+      {errors.global && <Message>{errors.globale}</Message>}
+
       <div className="links">
         <Link to="/find_id">
           <FiLock /> {t('아이디 찾기')}
@@ -94,8 +96,6 @@ const LoginForm = ({ onSubmit, errors, onChange }) => {
           <FiUserPlus /> {t('회원가입')}
         </Link>
       </div>
-
-      {errors.global && <Message>{errors.globale}</Message>}
     </FormBox>
   );
 };

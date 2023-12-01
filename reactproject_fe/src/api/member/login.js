@@ -6,7 +6,7 @@ export const requestLogin = (form) =>
   new Promise((resolve, reject) => {
     apiRequest('/member/token', 'POST', form)
       .then((res) => {
-        console.log(res);
+        //console.log(res);
         if (res.data.success) {
           // 로그인 성공시 JWT 반환
           resolve(res.data.data);
@@ -15,7 +15,7 @@ export const requestLogin = (form) =>
           reject(res.data);
         }
       })
-      .catch((err) => console.log('err', err));
+      .catch((err) => reject(err));
   });
 
 /** 로그인 회원 정보 조회 */

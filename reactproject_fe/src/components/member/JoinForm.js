@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { SubTitle } from '../commons/TitleStyle';
+import { InputText } from '../commons/InputStyle';
 import { FiSquare, FiCheckSquare } from 'react-icons/fi';
 import { ButtonGroup, BigButton } from '../commons/ButtonStyle';
-import { InputText } from '../commons/InputStyle';
 import sizeNames from '../../styles/size';
 import styled from 'styled-components';
 import loadable from '@loadable/component'; // 지연 로딩
